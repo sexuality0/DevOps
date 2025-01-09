@@ -1,0 +1,13 @@
+version: '3.6'
+services:
+  server:
+    image: septimak:lattest
+    build: .
+    container_name: septimak1
+  proxy:
+    image: nginx
+    container_name: septimak2
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    ports:
+      - 80:8080
